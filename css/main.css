@@ -703,7 +703,7 @@ blockquote {
 body {
     background: #f6f8fa;
     color: #1e3e3f;
-    font: 500 14px Lexend, "Noto Sans SC", sans-serif;
+    font: 500 14px Lexend, "Noto Serif SC", sans-serif;
     overflow-x: hidden;
     width: 100%;
 }
@@ -778,7 +778,7 @@ code,
 .hljs,
 .input,
 .language {
-    font-family: "Fira Code", "Noto Sans SC", monospace;
+    font-family: "Fira Code", "Noto Serif SC", monospace;
 }
 table:not(.hljs-ln) {
     margin: 15px 0;
