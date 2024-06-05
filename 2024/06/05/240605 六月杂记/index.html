@@ -3,7 +3,7 @@
 <html lang="cn">
 <head>
     <meta charset="utf-8" />
-    <title>Voyager</title>
+    <title>六月杂记 | Voyager</title>
     <meta name="author" content="Voyager" />
     <meta name="description" content="Welcome to my museum." />
     <meta name="keywords" content="" />
@@ -36,7 +36,13 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -145,193 +151,44 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Voyager</h1>
-                <h3></h3>
-                <h5>Welcome to my museum.</h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>六月杂记</h1>
     </div>
-</div>
-<div id="home-posts-wrap" true ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/09/29/230929%20%E4%BA%8C%E5%8D%81%E4%B8%80%E5%B2%81/">
-        <h2 class="post-title">二十一岁</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/9/29
+            2024/6/5
         </span>
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><strong>好像并不是很特别的一天，但放在生日就显得很特别。</strong></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/09/29/230929%20%E4%BA%8C%E5%8D%81%E4%B8%80%E5%B2%81/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/09/19/230919%20Others/">
-        <h2 class="post-title">Others</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/9/19
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><strong>So the life like all past days just goes on…</strong></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/09/19/230919%20Others/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/09/16/230916%20%E5%86%8D%E5%86%99%E7%82%B9%E4%BB%80%E4%B9%88/">
-        <h2 class="post-title">再写点什么</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/9/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><strong>糟糕！上瘾了！</strong></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/09/16/230916%20%E5%86%8D%E5%86%99%E7%82%B9%E4%BB%80%E4%B9%88/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/09/16/230916%209%E6%9C%8816%E6%97%A5%E5%87%8C%E6%99%A8%E4%B8%89%E7%82%B9/">
-        <h2 class="post-title">9月16日凌晨三点</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/9/16
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><strong>作为本博客第一篇，首先为近在眼前的生日写一些不会给别人看的话。</strong></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2023/09/16/230916%209%E6%9C%8816%E6%97%A5%E5%87%8C%E6%99%A8%E4%B8%89%E7%82%B9/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <a class="page-num" href="/page/2/">
-        <i class="fa-solid fa-caret-left fa-fw"></i>
-    </a>
-    <a class="page-num" href="/">1</a>
-    <span class="page-omit">...</span>
-    
-    <span class="current">3</span>
+    <div class="content" v-pre>
+        <font face="宋体" size=3>
+
+<p>0602</p>
+<p>想去东京！虽然不知道以后会不会改变想法，但这就是目前最想做到的事情。<br><br/></p>
+<p>0603</p>
+<p>把用了三年的手机换掉了，好像没什么不适应的，除了没有左滑返回，其他都还不错，玩到晚上习惯得仿佛新手机也用了三年。非常迅速地删掉了原来手机上的微信，后来才想起来没备份，所以大概是都没有了吧。不过以我的记忆力都记不住的东西，也许也没有记住的必要了？</p>
+<br/>
+
+<p>0605</p>
+<p>论文写作实在太多困难，感觉书翻译得很差，找来原文一看，无中生有了一堆内容，又消失了一堆内容，难怪全是中文字连在一起就看不懂，但你让我读原著，我也确实是读不了。不过就算这样也没有产生过“早知道不选这些课了”的想法，这点是确定的话其他的都好说。越来越对别人不感兴趣，不想听到任何人的对话，但在宿舍又是不可避免的，只好让耳机一直工作。最近经常看到有人说钱是用来买时间和空间的，时间我也发现了，空间这点上了大学才发觉，所以非常希望以后能有一个自己的房子，也不用很大，只要没有别人就好了。（太久没更新连上传的代码都忘了）</p>
+</font>
+    </div>
     
     
     
     
-</div>
-
+    
+    <div id="comment">
+        <div id="waline-container"></div>
     </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">Voyager</div>
-        <div class="description">
-            <p>不是命运，这是我最深爱的。</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://m.weibo.cn/u/7883658359">Weibo</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
     
 </div>
 
@@ -363,6 +220,31 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://asuka-mu.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "en",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "disable",
+        
+        dark: "html.dark"
+    });
+</script>
+
+
+
+
     
 </body>
 </html>
