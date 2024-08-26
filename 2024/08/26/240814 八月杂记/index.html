@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <title>八月杂记 | Voyager</title>
+    <meta name="author" content="Voyager" />
+    <meta name="description" content="Welcome to my museum." />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>VOYAGER</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;VOYAGER</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>八月杂记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/8/26
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <font face="宋体" size=3>
+
+
+<p>0814</p>
+<p>在家躺了一个月，几乎是什么也没干。CKk从伦敦回来后出去玩了两次，勉强增加了一些运动量。昨天凌晨一点多才到家，说实话一开始没打算玩到这么晚，但晚上真不想回去。这两天在看Hanni推荐的Rom-Com，这种电影放到以前除非深夜emo否则不会看，然而最近根本看不进去需要认真看的片子，只好这样了，而且“Hanni推荐”这个限定词能给人一种没有浪费时间的感觉……</p>
+<p>收拾行李，发现得带好多东西。落地之后还要去办居留卡电话卡。幸好银行卡送了两次接送机，要是拎着两个巨大行李箱乘地铁真不知道要怎么办啊……好多次想着早知道去美国了，到底是语言通的地方，网上的信息也会多一点，不过现在也没法后悔，就这样看看吧！说起来，昨天买了一个登山包，今天就下架了，好怀疑啊！当时先买了一个1030的，过了五分钟刷到了一个992的，毕竟是40块钱所以买了这个并把之前的申请了退款，为此和客服周旋了半天，幸好没到投诉这步就给我退钱了，以后还是应该严谨一点。希望早点到，到不了再想办法找人帮忙带过去吧。</p>
+<br/>
+
+<p>0822</p>
+<p>到米兰没多久登山包就送到家了，可能这就是命运吧。前几天确实有点紧张，但20号晚上（由于开错路只能上杨浦大桥干脆就）去学校的路上收到了税务局发来的税号，因此认为并不会太糟糕，也就没在紧张了，在南区门口的肯德基吃了点，香辣鸡翅估计是刚炸的，烫得要死没品出味就没了，拒绝扫码付车费开了就跑回家，在车上用屁颠虫放了一路歌，然而当天晚上还是失眠了，原因不明。21号在晚饭（又名我的告别宴）开始十分钟后就溜出去了，讲到晚上十点才回家，路上电动车估计是有零件松了，战战兢兢地开到小区里发现立不住，又违规停进自行车库让它靠在墙上，此时已是十点半，我爸妈给我打了十七个电话问我是不是打算改签。为此我执意要求自己开车过去，幸好无事再发生。过完边检排队安检的十分钟是最紧张的，安检员扔掉了我特地带去的半瓶水，使我迫不得已在自贩机上又买了瓶6块8的农夫山泉。</p>
+<p>谢谢大家陪我到飞机起飞……十一个半小时比想象中轻松太多，不知道为什么年初那次十小时坐得想跳飞机，这次真的还好，除了半夜三点广播说开始发夜宵了实在太抽象了。机场有点小，边检排了一会出来行李都到了，坐车到宿舍大概一个小时的样子，这个宿舍非常神奇，进门第一眼像牢房，东西都放好开了灯之后看起来又真的还不错。睡了一觉，起来准备吃点午饭，连找两家店都关门，这时候刚好对面有家店开着，就进去买了个披萨，幸好他们会讲英语，尽管意式口音使我没能理解多少，鉴于我一句意大利语都不愿意学，决定以后尽量不坐在餐厅吃饭，要么打包要么自己做要么去食堂……下午三点选课完毕，先选了四节课，过两天得抽空给老师发邮件问能不能转学分，不能转就不上了，接着又睡了一会（时差比预计得难倒太多），起来之后买了电话卡，连电话卡都能外卖真是太神奇了，本来没有打算这么早就换电话卡，但注册Whatsapp的时候中国手机号被墙掉了，前台说我must加入群组，所以加快了一下进度，这个App比微信的界面设计还要难看……晚上七点左右去旁边的小超市买了点垃圾袋卫生纸矿泉水，还买了半个哈密瓜，都不是特别贵，过两天要去Esselugua看看。晚餐是中午没吃完的披萨。</p>
+<br/>
+
+<p>0823</p>
+<p>从零点睡到十二点还是很困，起来之后先去买了个汉堡，Vodafone成天抽风捣鼓了好几次（第二天就好了），接着去Esselunga买点食材，结账的时候选了自助收银结果卡住了，工作人员又帮我从头操作了一遍，搞得比人工还麻烦真是太抱歉了。买了油和果汁和水和很多东西，完全拎不动，回宿舍上楼进来了几个看上去像法国人，反正一定是欧洲的，帮我拿了一会并开了门，非常感谢。下午又躺了一会，到晚上六点左右决定去把博物馆卡办了，毕竟是一年，还是越早办越好吧。远远看见米兰大教堂，真的很漂亮，两台手机和一台相机都拍不出来，拍完视频去旁边的二十一世纪博物馆办卡，1830hr结束，我到的时候只剩十分钟了，好幸运！不过写邮箱地址的时候也许漏写了数字，因为后来没有收到他说的邮件，尽管比起漏写数字更可能是他们抄错了，刻在DNA里的QQ号应该不至于写错吧……走回去的时候简直要累死了。Google Map一点都不好用，意大利人根本不认真开餐厅，经常一整条街都是关着的，吃了个百香果和酸奶味的Gelato就回宿舍了。晚餐是中午没吃完的汉堡，中午买的橙子非常酸，我还买了四个，之后榨汁加糖吧。</p>
+<br/>
+
+
+<p>0824</p>
+<p>今天决定无论如何一定要办交通卡了。试图去餐厅吃饭，被餐厅外坐着的十几个白人吓晕，三过店门而不入，此时已经很饿所以买了一个面包，极其难吃，甜得发慌，还是去吃麦当劳了，还把面包放进开心乐园餐盒子里走了很久，最后还是扔掉了（垃圾桶倒是特别多）。为什么他们不打伞呢？我是真热啊，但没有一个人打伞，实在不好意思。本来还想要不自己走1.412km吧，结果两公里路走了一个多小时，看到公交车站就一定要坐下来歇一会，路过宜家和一些小店也要进去逛一下，又到Duomo的时候寻思幸好没自己来……Bershka这家店的衣服还挺好看的（由xhs推荐），不过想着带不回去就没有认真逛，刷到COS的一个斜挎包很好看，在走向它的过程中绕进一家小店，看到最后一个打三折的包立刻就买了！之后还是去COS看了下，感觉没有刚买的好看。买了不知道什么味道和椰子的Gelato。路边有支持巴勒斯坦的活动。去ZARA蹭厕所并在楼梯上随地大小坐休息了半个小时，因忘带证件照而破防，取消了预约改成网上自己操作，两张银行卡都付不了，手机银行还在系统维护，幸好维护到东八区两点就结束了，搞成之后去机器上拿了卡并支付了下个月车费并买了单次票回去，在超市购入熟食（难吃）、沙拉（苦的）、半个哈密瓜（永远不会背叛我且只要人民币十二块）和泡面一桶（今晚没吃）作为晚饭。过两天想去苏黎世看看。</p>
+<br/>
+
+<p>0825</p>
+<p>今天没有做什么事。去印度餐厅吃了午饭，很好吃，最后他们非要给我加一份米饭，这份米饭却又不好吃，不好意思拂了他们的兴致，不得不假装吃不下打包带回来再扔掉，接着去超市买水和盐和菠萝椰汁，回来后睡了会，醒来看了部电影，去餐厅吃晚饭（意大利面极其难吃！），看了会日语，就这样结束了。欧洲交通还是挺复杂的，尤其是去瑞士的车票怎么都这么贵？我要仔细研究一下。</p>
+<br/>
+
+<p>0826</p>
+<p>除了去学校报到，其他一切没有很大变化。中午吃了拉面，称不上难吃，但比日本的还是差太远了。晚上自己做了那不勒斯意面，虽然过程相当灾难，但味道还不错，然而可能有些东西没熟还是怎样没过多久就开始肚子疼……途中误用了其他人买的餐具，以为是公用的，但没被发现所以不反思。突然发现我对几乎所有东西都不再有执念，城市、景点、餐厅、食物，没有什么东西对我来说是非去不可的，有当然很好，没有也就那样。这是从什么时候开始的？上个月还不是这样。大家说在某地一定要吃某物之类的，我觉得没吃过也行吧，随便去一个城市没有什么吃不到的。我上限太高下限又太低了。今天看的是是枝裕和的&lt;下一站天国&gt;。</p>
+</font>
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2024 Voyager
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Voyager
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://asuka-mu.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "en",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "disable",
+        
+        dark: "html.dark"
+    });
+</script>
+
+
+
+
+    
+</body>
+</html>
