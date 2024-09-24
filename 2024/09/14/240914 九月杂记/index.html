@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <title>九月杂记 | Voyager</title>
+    <meta name="author" content="Voyager" />
+    <meta name="description" content="Welcome to my museum." />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>VOYAGER</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;VOYAGER</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>九月杂记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/14
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <font face="宋体" size=3>
+
+
+<p>0903</p>
+<p>这天（意思是本文是后来补的）去了Crema小镇，总觉得故事发生在南意，没想到是北意，所以就去了。前一天去交Kit，连跑两家邮局都说第二天才可以，所以起了个大早去Duomo旁边的邮局，跟我说什么两个小时之类的，在这里认识了Rinka和Lizzy，似乎是米理的交换生，一起去了旁边的邮局，也不可以，于是在此告别，我去了威尼斯街上那家邮局，终于交掉了，办事效率极低一个Kit办了十几分钟，本来预留了很多时间，结果又是紧赶慢赶到车站，其间还坐反了一次地铁（双层地铁），差点以为要来不及了，幸好前几天去垂直森林的时候路过车站，想看看Miniso就进去看了眼，所以对车站构造还算熟悉，没有又绕远路。</p>
+<p>车站没有检票，不过我还是提前买了车票，几块钱的车票要是被查到罚几十块很不值当啊。火车上人很少，后来到远一点的车站才上来了几个人。Crema很符合我对欧洲传统小镇的印象，以教堂为中心的一块还算繁华的区域，窄窄的石板路，两边的小店，从中心往外走出十分钟就变得很开阔（低情商：人烟稀少）了。整个小镇都是淡黄色的。去游客中心可以领到取景地地图，游客基本都是为了CMBYN来的吧。在小镇上的取景地很集中，花了差不多一个小时就打卡完了，还把手机放在别人的车盖上录视频真是很抱歉（没有感到抱歉），一直在产生这样一个想法：这些门、窗台、拐角、街道本来都是再普通不过的地方，因为是电影才被我赋予了意义，如果没有它的话我永远不会想到来这里，就好像不会去附近任何一个小镇一样，所以还是挺奇妙的。门和旁边的墙上写满了台词和歌词。</p>
+<p>中午在教堂旁边的Gelato店吃了杯冰激凌，走前买了个面包当午饭。本来想骑车去Elio的秘密基地看看，但当天实在太热了就没有去，差不多两点多就回家了。米兰的MD超市离我很远，之前在xhs上刷到一款椰奶说很像椰树椰汁也没有去买，刚好车站旁边有就去买了一罐，不像但很好喝，怎么不算我cp给我的福气呢（不是）</p>
+<br/>
+
+<p>0904</p>
+<p>都灵一日游。早上看着15路电车从眼前过，下一班竟然等了接近20分钟，差点又迟到。之前还有点恐慌，总感觉廉价大巴有点不安全，不过到车站之后就没事了（乘飞机也是这样）（说起来以前真的不害怕飞机的不知道为什么这年开始严重恐飞），我的座位被别人占了，坐到别人旁边之后才发现前面有一排空位！好后悔但不好意思起身往前走，好在我那个座位是给残疾人优先的所以椅背比别的靠后一点，勉强不算亏啦……</p>
+<p>到了之后先去埃及博物馆，在GTTapp上买了日票，但不知道怎么刷卡，干脆就没有刷……埃及博物馆给我留下的印象不是很深，有个很长的走廊，两边放满了木乃伊，给人感觉很震撼，还有一个是和埃及无关的Quiet Room，如果参观者觉得有点吵可以进去坐一会。在休息座位上吃面包并被阻止。午饭是汉堡王，刷了三次卡也没有刷成所以付了现金。之后去了都灵王宫，原价15欧学生票只要2欧，进门就是非常漂亮的屋顶，来之前还说只会喜欢简洁的艺术形式，结果并没有。房间一个比一个好看，中途到长廊达到顶峰。有工作人员就在现场修复画，旁边有个电视机放修复纪录片，这个感觉很好。最漂亮的是一个很好的穹顶，金色和白色组成的和星象有关的东西，当时在想这么高的顶竟然真的是人造的吗？想到以前没买的月读时计和白夜飞行。最后还有画展，我的艺术修养不足以支撑看完加上走累了就走了。为买而买了一个很难看的冰箱贴……</p>
+<p>之后想去Venaria宫，由于乘过公交车并开始下雨并走错路导致错过最后入场时间，太失败了下次再来吧。回去又花了好长时间才找到公交车站……在一条街上买了一个肉夹馍当作晚饭，非常好吃。去吃牛奶Gelato，很好吃但没有那么好吃。走进咖啡馆问有没有厕所，得到肯定回答后买了一个牛角包以表支持，比起把钱送给公共厕所我宁愿去咖啡馆买牛角包！店员应该看出来我只是为了厕所，让我去完再回来拿面包。</p>
+<p>回去还是Flixbus，地图上说20分钟，本来预留了40分钟时间，到了之后发现一辆大巴车都没有，重新找地址才发现在同一条街上但不在同一个地方，此时走路还有十几分钟，距离发车只有9分钟了，于是我一路狂奔终于把时间压缩到7分钟，在最后两分钟赶上了车……说起来，来了两个星期都没有在路上看到有人在快速地跑，可能我跑成那样对意大利人来说也不多见吧……回程的大巴是双层的，这次我看到整排空位直接坐下，并且这辆车的前排是餐车那样面对面的形式，一个人独占四个座位！回去路上远处一直在以每10秒一次的频率闪电。再次在Duomo转车（似乎在国外地铁转公交或者相反比在国内更容易接受，或许是站和站之间离得真的很近吧，国内地铁口有点太少了），晚上的米兰大教堂上的圣母像好像悬浮在空中一样，买了开心乐园餐并回宿舍。</p>
+<p>（这样写效率不高！还是尽量详略得当一点吧！）<br><br/></p>
+<p>0912</p>
+<p>以为是一下课就要去机场了，结果是晚上，所以慢悠悠地买了麦当劳洗了衣服再出门，还是没有把握好，火车在到站五分钟前才显示站台，在车站等了十几分钟。</p>
+<p>巴塞罗那给人的第一印象是非常干净，上网看到别人说巴塞罗那干净？！但我是从米兰过来的……青旅地理位置很不错，在大门口没有弄懂门铃，有人过来问我是不是去那家旅馆，并带我进去了，说这里非常好非常干净什么的，问我是不是第一天来，这是他最后一天了。电梯是老式的需要手动开门的那种，很新奇。</p>
+<p>把被子当成床单铺好并发现没有被子，最后惊奇地发现那张布竟然就是被子啊！第二天要早起，结果订巴黎机票还是订到一天，订巴黎机票打破了“回米兰更贵是不是杀熟”猜想，猜测原因为人往高处走。订完赶紧睡了。</p>
+<br/>
+
+<p>0913</p>
+<p>懒得写了……以后有空再补吧……</p>
+</font>
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2024 Voyager
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Voyager
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://asuka-mu.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "en",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "disable",
+        
+        dark: "html.dark"
+    });
+</script>
+
+
+
+
+    
+</body>
+</html>
