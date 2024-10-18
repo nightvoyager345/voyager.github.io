@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <title>十月杂记 | Voyager</title>
+    <meta name="author" content="Voyager" />
+    <meta name="description" content="Welcome to my museum." />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>VOYAGER</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;VOYAGER</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>十月杂记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/10/18
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <font face="宋体" size=3>
+
+<p>1007</p>
+<p>I.昨天晚上很想吃麦当劳的奶昔，所以虽然下雨还是去买了，发现并没有比罗马贵，只是火车站有轻微的溢价。走在路上突然觉得在国内总是缺乏生活的实感，好像在学校只要学习就好了——这样的话它占的比重就太大了，宿舍也剥夺了太多本应有的自由，以至于现在为高价洗衣费发愁而上网找二手洗衣机并淋着雨去拿，似乎都成了不那么讨厌的烦恼，因为在四人间我没有地方放也没法用它，并且在昨天之前，我都不知道世界上还有手动洗衣机这种东西。与此同时还有不少“校园只是一部分”的事情，比如需要自己做饭、快递很慢很久没有网购、不住在学校里也没有辅导员之类的角色，好像一下子宽阔了不少。我非常喜欢这样；</p>
+<p>II.说是要有自己的节奏，时而不免思考一些关于以后的问题，在其他哪个国家都会作为异乡人而居住，这一生或许不会有完美的答案，可能对多数人来说也是这样的吧。然而无论如何想要尝试一下，不由分说、没有后退的余地；</p>
+<p>III.必须也的确开始了对社交软件使用时间的控制。只是两三年前我对许多事情的看法（例如以前我并不知道怎样判断一个人好不好看）还没有被各种焦虑洗脑，更糟糕的是回不去了。此事对我来说非常违背本能，请我为了自己务必努力一下；</p>
+<p>IV.每个人对他人的要求不一样，我不是凑合一下就行了的那种人，虽然困难但改不掉也不想改掉，既然如此肯定要承担相应的结果。不过说真的对别人的要求不要那么高了，并且逃避问题是超级低能的做法，不得已的时候也可以退而求其次，但不要一下子全部扔掉；</p>
+<p>V.要么这三个月再往外走走，要么必须挂精神科了，如果我的状态是正常人类的话（&#x3D;如果活着就意味着必须这么费劲地度过每个小时），那整个世界都没什么值得留恋的了。</p>
+<br/>
+
+<p>1013</p>
+<p>终于把爸妈外婆外公送回了上海，其实能感觉到他们这几年正常多了，不知道是我们距离变远了还是他们开始上网了，总之是好事，就这样下去吧。还是觉得活着对我来说太困难了，为了自己想做的事忍受一下某些方面是很正常的，然而并没有特别想做的事，某些方面又过于难以忍受，导致根本达不到平衡，感到很糟糕。可能过几年回头看会觉得不算什么事吧，就好像高中时最大的烦恼也只是一次考试没考好，但我的想象力确实达不到太远的未来。而且每思及此都感觉自己在无病呻吟。</p>
+<p>前几天买了往返伦敦的机票，终于要去这个对它的印象仅来自于影视作品的地方了！把前几个地方也补充一下吧。</p>
+<p>罗马：辉煌的古文明和屎一般的现代城市，从Termini出来使我对它的初印象就糟糕透顶，很多homeless，到处都是垃圾和很脏的墙壁，走了十分钟到麦当劳机器不出receipt，不过两个服务员非常友善。走到民宿后发现只有坐在床边才有信号，房间内直接断网，这实在是太离奇了，像希腊那样地铁内断网我尚且能够理解，房间断网简直前所未闻，况且它离罗马斗兽场只有一公里，我觉得在泰姬陵旁边一公里都不会出现这种情况吧？罗马斗兽场，让人在阳光和暴雨的数次轮换中感受到跨越时空的魅力，确实很难想象几千年前的罗马人能建出这样的建筑，与之相比现代罗马更像未开化了。古罗马广场，不得不靠脑部完成的景点。万神殿，更早知道的是同名动漫，非常喜欢Caspian，可惜进去的时候天气不是很好，如果有光从穹顶的圆孔照进来一定非常好看，这样巨大的用混凝土浇灌出来的穹顶究竟是怎样完成的呢？仰头的每一秒都感到震撼。喜欢万神殿胜过罗马斗兽场（或许有动漫的原因吗）。在超市买完食材出来，因公交车太挤而完成了第一次逃票，未被逮到。</p>
+<p>第二天去了梵蒂冈，辉煌的博物馆教堂和屎一般的现代国家。梵蒂冈博物馆，还没进去就被旅行团包围，刚入口的导览也很不清楚，走线设计仅比卢浮宫清晰一点。地图长廊挤满了人（说实话单论美观度觉得还不如都灵王宫，实在讨厌大块大块的金色），接着旅行团的丑陋旗子一根根地竖在拉斐尔的壁画前，让人感到无比恶心，好不容易下楼上楼下楼到了西斯廷教堂，在乌泱泱的人群被推着往前走，就是佛来了也没法静心欣赏，只觉得米开朗基罗的颈椎病得的太可怜了。圣彼得大教堂更是排了70分钟队才进去，说是安检感觉也没人看，单纯起到一个分流作用。不太喜欢，外观远不如米兰大教堂，里面的金色也压得人很难受，我的审美还是偏向彩色玻璃窗有阳光打进来的那种，有人要说了“这是世界上最大的教堂&#x2F;著名朝圣地点&#x2F;……”，我只能说关我p事我又不是天主教徒。回来不幸撞上交通罢工使得我对罗马的恨铁不成钢又加深了一分。晚上的餐厅又没有信号。第三天中午就回去了，意铁会发零食很意外！从未感到米兰是这么好的地方。</p>
+<p>巴黎：就算它不是巴黎，也会是另一个同级别的城市，可以理解这么说吗？喜欢巴黎并不是因为它是符号意义上的“巴黎”，是因为确实很好，体现在每一幅画每一座桥每一尊雕像每一个建筑，这些东西让它成为独一无二的城市。欧盟学生全部免票的格局实在是太大了，此处必须再拉罗马出来鞭尸一通，罗马斗兽场这种承担着向公众普及历史功能的建筑只给有欧盟居留卡的学生打点小折真是丢死人了……在巴黎的那三天气温都特别低，经常下雨，感到有些遗憾。第一天去了橘园美术馆和凯旋门，杜乐丽花园的绿色躺椅坐起来特别舒服，很难想象阳光明媚的日子有多幸福，回去一搜一把两千欧，等有钱了一定要买一把放阳台上。第二天去卢浮宫，当然对卢浮宫的向往亦是来源于影视作品，没有办法我就是这样的。虽然巴黎没有象征意义，但卢浮宫确实全都是象征意义，对镇馆之宝没有太大兴趣，只想戴着耳机听听olk。</p>
+</font>
+
+
+<p>1018</p>
+<p>在继续之前……一个月来睡眠质量都非常差，没有办法连续睡超过五个小时，半夜一定会醒来一次，醒来之后过两分钟又睡着了，那么醒来的意义是什么呢？返祖了怕被野兽惊醒吗？今天更是头痛到不得不睡了一天，好像也没有办法，只能祈祷冬令时的到来或许能改善一下情况。这一个月也过得太快了，为什么每次意识到时间慢下来了，它就会立刻又快起来呢？</p>
+<p>关于自由的思考：权利和自由确实是不可兼得的，如果说在国外更自由只是因为“被排除在外了”那么也可以吧，我真的没有力气思考宏大叙事了，我过得好就行了，至于好的来源和好的去向就算和我有关我也懒得思考，喜欢怎样就怎样吧累死了。</p>
+<p>巴黎con’t：我是那种会因为展馆过于小众没什么人去而爱上那个展馆的人。亚非拉美大洋洲展馆里有一个几乎没人的休息区，可以安安静静地在里面睡一觉，说起来对那种样子的雕像的最初印象还是来自&lt;丁丁历险记&gt;，没想到会误打误撞走进这个展馆，所以也许都是有意义的。卢浮宫的指引真的非常不清晰，尽管有诸多理由，但我想本来应该也可以更清楚一点的，鬼打墙的时间太长了，绕了好多圈才到其他馆，法国绘画区也没有什么人，再走一段路，汉谟拉比法典就那样光秃秃地杵在那儿，给人一种“原来可以就这么看它吗？”的感觉，跨过三四千年来到我们面前、很神奇。在卢浮宫旁边的麦当劳边开会边吃饭，同组东欧同学的话我一个字都听不懂，当时还以为是信号不好，结果面对面讨论还是听不懂。再后来去买小王子的冰箱贴，去圣礼拜堂（哪有那么好看？）和巴黎圣母院（修缮中）————对高中前桌的话印象深刻：“走过一扇扇玫瑰窗，俯瞰蓝天下的巴黎。” 不知为何感觉特别有气势，然而后来因我不回消息现在也不再联系，我真是…。这天天气还挺好的，傍晚时候阳光打在卢浮宫的四棱锥上折射出光线，完全符合olk的结尾。晚上吃中国人开的越南餐厅，好羡慕小时候就在国外的小孩啊，其实意思是羡慕家里有钱。</p>
+<p>第三天去了奥赛博物馆，&lt;星空&gt;被借到伦敦了，等我去伦敦的时候估计又还回来了……尽管看不看真迹的区别不过仅限于我知道我看过而已，至于它的绘画手法和时代背景之类的，说实话看不看都不知道。之后走了接近一个小时回酒店，回去之前去上午因为排队没去成的店里吃了松饼，走前被坑了一瓶三欧元的水。那条街还是挺脏的。第四天一大早起来回米兰。</p>
+<p>雅典：现在回想起来还不错，可能是在罗马的衬托下也好了起来……感觉太漫长了好难完全回忆起来，我努力一下。刚到感觉还不错，机场有一种很复古的气息，明显感觉到上了年纪，但运营得还不错。这次住的青旅比巴塞罗那的高级一点，尽管女生四人间还是有人打呼噜，但有床帘和独立卫生间就很好。旅馆就在卫城脚下，很晚了还是吵吵闹闹的，欧洲人都不睡觉吗？第一天看到接近满月的时候就意识到没有办法看到满月下的卫城了，以前在网上看到过血月和神像的摄影作品觉得特别好看，可惜我也没有长焦镜头，很难拍出来好看照片。其实也不怎么拍照了，不知道是相机的问题还是我的问题，很少看到什么景让我有很强的一定要拍下来的冲动，有时候看到就感觉拍出来肯定不好看，结果果然不好看……鉴于现在开机后还得手动开镜头，就认为是相机的问题吧……</p>
+<p>第二天先去卫城博物馆，二楼有个白色展厅，里面密度很大地放着众神的雕像，当然多数都不完整，感到非常震撼，因为二楼不可以拍照所以我跑到三楼俯视着拍了两张，考虑到可能还是违规的所以不发出来了。卫城上神庙的真迹也在博物馆里。在三楼透过玻璃窗就可以看到山上的卫城，前景是雕塑后景是卫城，非常神的构图，用手机拍了好几张。出来之后买烤肉卷，似乎和沙威玛有点像？（笑）里面有烤肉薯条番茄生菜酸奶酱，非常好吃并且一个就可以吃饱，只需要四欧元。接着去一个遗迹，说实话纯粹是为去而去，不理解从外面就能看到全部遗迹为什么门票还要卖那么贵，买了通票不去又很亏所以硬是都去了，除了一个稍微大型一点的遗迹其他都没有进去的必要，一点阴影都没有差点把我晒死。熬到接近四点终于慢慢上山去卫城，现在复盘感觉当时应该有点轻微地中暑了，头很晕而且很久没缓过来，去卫城转了一个多小时就下来了。卫城的话，有点自己脑补的意思，但当时天很蓝，在石柱下还是漂亮更多，因为只剩柱子反而更有历史感了。不知道要怎么说呢……可能有些东西就是用语言讲不出来，总而言之，在山上看着远处阳光下的海和眼前的神庙，觉得希腊人确实有吃一辈子老本的资格，老天赏饭吃，他们摆烂也是应得的，是我我也摆烂了。晚上找了一家餐厅，老板（也不知道是不是老板）问我从哪里来，然后向我展示他手机里的外滩夜景，点了牛排和橙汁，味道还不错不过没吃完，作为生日晚餐也算吃了顿好的。到码头乘公交上船，走错了一次才到正确的船，同一个房间的两个希腊老太太试图和我说什么，实在听不懂，没有办法。这么小的房间还有独立卫浴真是太好了，我都做好两天不洗澡的准备了，潦草地洗了五分钟。去酒吧买了块小蛋糕，特别甜不是很好吃，但眼下只有这种蛋糕不得不吃了。</p>
+<p>在赫拉克利翁的一天堪称灾难，早知道22岁生日亦即第一次一个人在国外过生日是这种情况我怎么也不会选这个地方，但我先去巴塞罗那再去雅典倒也不是因为别的，纯粹是这样机票总价更便宜……说是六点一刻到，实际上五点三刻就把我们放下去了，我走了半个多小时到赫拉克利翁要塞，此时一家店都没开，只好靠从米兰带去的小面包填填肚子。要塞有一公里多，花了五秒钟就判断出自己绝没有力气走到尽头再走回来，所以走了一两百米就坐到堤上开始休息。早上还是挺冷的，同一艘船上下来的几个人坐在洞穴（石头凿的很大的、不是全是泥巴的洞穴）里看日出，日出不如巴塞罗那的好看，不过天是粉色的，将亮未亮的时候伴随着远处山上的灯勉强还行吧。去一家店吃早饭，希腊式早餐套餐竟然tmd只是几片硬面包和超市买来的果酱黄油，唯一好处是以为饮料不在套餐里，本着生日想吃什么吃什么原则点了最贵的橙汁，没想到不额外收费，哎呦谢谢他了。熬到博物馆开门去博物馆，进去逛了一圈后就找无人的角落睡了一觉，醒来之后游客已经很多了，又是一波一波的旅行团，并且在如此偏僻的地方仍然能看到同胞的身影。对博物馆没有太多感觉。附近的商业街还是挺繁华的，随便找了家餐厅点了羊肉排，吃到最后没有汁水了实在吃不下，不过价格很便宜，同样一份在米兰至少贵一半。乘公交车去克诺索斯王宫（其实我已经忘了它叫什么名字了），什么都看不懂，认真读了导引牌还是对不上号，只能瞎几把看看。王宫在山脚下，脑补一下觉得以前应该非常华丽，山脚下让我联想到檀香山那个仿制的平等院，比宇治的好看多了，所以背景的作用还是挺大的……参观了一个多小时又乘公交回来，路边有人招手拦车，公交车减了一下速还是没停，司机还回头看了一眼，留下人在原地不知所措……回到市里也不知道要做什么，逛了会街，莫名其妙又走到清晨的要塞边，路很有威海的感觉（倒反天罡），海的话还是下午阳光完全出来了更好看。买了几个冰箱贴（现在已经看不顺眼）。路上有乞丐卖餐巾纸，感觉他可能买不起去其他岛的船票，或许以后也只能在克里特岛了，是不是同情心过于泛滥了？但确实会想象一下一些homeless以前是怎样的，在米兰看到的在做数独的流浪汉，一开始应该并不是流浪汉吧。每家餐厅的菜都差不多，没有什么胃口，所以又去买了烤肉卷，路过前一天也去了的酸奶店，给前面一个人打了十欧元的时候就觉得不行，果然也收了我九欧多，同等份量在雅典在四欧，是不是可以说穷山恶水出刁民……在路边吃完酸奶后去码头乘船。不解释就随便换位置，问了才说同房间有old lady让我把下铺让出来，第二天起来一看old lady二十多岁，如果不因此对希腊印象很差那我是佛前一朵莲，马上成圣人的那种。</p>
+<p>第三天没什么好讲的属实逛无可逛，冰箱贴也特别丑，他们宁愿做希腊几把也不愿意设计点好看的冰箱贴。好不容易到去机场的点立刻就去了，地铁站还没有人工售票处没买到学生票硬生生又多花了4.5欧。去机场飞机延误一个多小时，有本事延误两个小时给我赔钱！两个地勤还把我整本护照翻了一遍！还是该死的摆渡车！飞机上发饮料直接把我忘了谁知道是不是故意的！谁爱去谁去我再也不会去了！</p>
+<p>巴塞罗那：起点太高了，第一个去巴塞罗那，后面所有都显得逊色了……第一次在欧洲去比较远的地方，在机场车站自动售票机上操作了十几分钟、试了现金和两张银行卡都没成功，半小时一趟的地铁眼看要发车了，信号也非常差根本上不了网，最后发车五分钟前莫名其妙买好了，这种地狱级开局都没有影响我对巴塞罗那的爱。初印象在九月已经写过不再赘述。第二天早上起来去米拉之家，下午去巴特罗之家，真是两座神级建筑啊！感觉自己上辈子住在这里！一切都设计得非常好，漂亮、宜居、人性化，到处都有极其精巧的设计，虽然门票很贵但我太喜欢了所以完全是值得的，早就说了我这种文盲就适合这种现代的直接的明媚的阳光的艺术形式，工作人员也都特别友好。从巴特罗之家出来之后，绕到忘记哪里想逛会街，结果还是变成了随便走走，教堂前有人化妆成小丑把一个爱心气球递到我面前说”Cheese! I love you!” 虽然知道她只是想要钱我也没给但还是被触动了一下，天哪可怜的东亚人（只是指我）……想找家店吃点东西但社恐又犯了不敢走进去，绕了两圈才去一家甜品店买了西班牙油条，配热巧克力很好吃。晚上因为毕加索博物馆免票所以去了，很抱歉只是走马观花地走完了，我确实看不太懂绘画艺术。到处都有演奏音乐的人，好像听到了&lt;天堂电影院&gt;主题曲，很喜欢。</p>
+<p>第二天其实也没有计划，但哪都不去又有点亏，就去圣保罗医院转了转，这是一个适合拍照的地方，到处都是很完美的粉色，在二楼还能看到圣家堂，不过其他就算了。去圣家堂前吃了份久仰大名的海鲜饭，极其难吃，后来上Google Map和xhs一搜竟然很多人夸这家店，那么料想不是这家店的问题，海鲜饭就是不对我胃口。不知道要怎么写圣家堂，去了这么多教堂，现在还是觉得它是内部最漂亮的（外观最好看的是米兰大教堂），只有一层楼但我在里面待了三个小时。遇到地下一楼有人结婚。阳光打在旋转楼梯上简直是天堂。圣诞立面和受难立面的设计也很厉害。很难形容，我觉得每个人都会喜欢它的。出去之后想到早上在圣保罗医院纪念品店看到的戒指，难得有我非常喜欢的，并且我最喜欢的恰好是最便宜的，所以还是跑回米拉之家买了，幸好每个纪念品店都有！接着去吃兰州拉面。此时我的脚已经受不住了，夏天还是不该穿运动鞋的，晚上走了一公里终于找到一家像名创优品的店，果断走进去买了双三欧的人字拖，并且第二天就穿着人字拖去机场了……</p>
+<p>早上四点被呼噜声吵醒再也没睡着，干脆睡睡醒醒熬到六点去麦当劳买了早操之后去看日出，离海边还差一公里多的时候离日出还有半小时，公交车没来，我觉得走过去也差不多但就是不太想走，幸好十分钟后车来了，晃悠到海边刚刚好。本来犹豫要不要去看日出，没睡好真的很困，但幸好来了，真的非常漂亮。每几分钟就有一架飞机飞过，在朝霞里很好看。海边的小屋子倒是没什么人气的样子……看完日出回酒店，收拾好东西就去机场了。巴塞罗那机场混乱程度又收了个糟糕的尾，先过安检再有海关究竟是哪个天才想出来的呢？提前一个多小时到硬是因为乘航站楼之间的公交车和找邮票（又被xhs骗了）和这个国内国际共享的安检口磨蹭到只剩十几分钟，最后我忍不住从传送带上抢走刚过完安检的包就走了，跑到登机口竟然还在排队登机，怎么不算比p更p……</p>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2024 Voyager
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Voyager
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://asuka-mu.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "en",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "disable",
+        
+        dark: "html.dark"
+    });
+</script>
+
+
+
+
+    
+</body>
+</html>
